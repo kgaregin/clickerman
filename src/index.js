@@ -1,10 +1,11 @@
+require('./main.scss');
+require('../node_modules/bootstrap/scss/bootstrap.scss');
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const title = 'My Minimal React Webpack Babel Setup';
+import {HomePage} from './components/home';
 
 ReactDOM.render(
-    <div>{title}</div>,
+    <HomePage/>,
     document.getElementById('app')
 );
 

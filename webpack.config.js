@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-
 module.exports = {
     entry: [
         'react-hot-loader/patch',
@@ -11,6 +10,26 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
+            }, {
+                test: /\.scss$/,
+                use: [{
+                    loader: 'style-loader' // creates style nodes from JS strings
+                }, {
+                    loader: 'css-loader' // translates CSS into CommonJS
+                }, {
+                    loader: 'sass-loader' // compiles Sass to CSS
+                }]
+            }, {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    'file-loader',
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            bypassOnDebug: true,
+                        },
+                    },
+                ],
             }
         ]
     },
